@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import './App.css'
 import Countris from './Countris/Countris'
- 
 const countrisPromise =fetch('https://openapi.programming-hero.com/api/all')
 .then(res => res.json())
  

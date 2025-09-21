@@ -3,9 +3,11 @@ import './Country.css'
 
 
 
-const Country = ({country}) => {
+const Country = ({country,handalerVisited,handalerVisitedFlags}) => {
+  // console.log(handalerVisited)
   //  console.log(country.area);
     const [visited, setVisited] = useState(false);
+
     const counrtyVisite =()=>{
     // * baick way example 
      // if(visited === false){
@@ -20,6 +22,7 @@ const Country = ({country}) => {
 
     //  *** exchage way
     setVisited(!visited)
+    handalerVisited(country)
 }
   return (
     <div className={`counrty ${visited && 'counrty-visited'}`}>
@@ -29,11 +32,12 @@ const Country = ({country}) => {
        <p>Populaion:{country.population.population}</p>
        <h3>Capital:{country.capital.capital}</h3>
        <h4>Area: {country.area.area} {country.area.area > 300000?'(Big Country)':'(Small Counry)'}</h4>
-       <button onClick={counrtyVisite}>
+       <button onClick={counrtyVisite} >
         {
           visited?'Visited':'Not Visited '
         }
        </button>
+        <button onClick={()=>handalerVisitedFlags(country.flags.flags.png)}>Visited Flags</button>
 
     </div>
   );
